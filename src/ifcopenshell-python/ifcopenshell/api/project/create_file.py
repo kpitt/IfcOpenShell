@@ -56,7 +56,7 @@ def create_file(version: ifcopenshell.util.schema.IFC_SCHEMA = "IFC4") -> ifcope
         datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).astimezone().replace(microsecond=0).isoformat()
     )
     file.wrapped_data.header.file_name.preprocessor_version = "IfcOpenShell {}".format(ifcopenshell.version)
-    file.wrapped_data.header.file_name.originating_system = "IfcOpenShell {}".format(ifcopenshell.version)
+    file.wrapped_data.header.file_name.originating_system = "ifcopenshell.org - IfcOpenShell - {}".format(ifcopenshell.version)
     file.wrapped_data.header.file_name.authorization = "Nobody"
     file.wrapped_data.header.file_description.description = ("ViewDefinition[DesignTransferView]",)
     return file

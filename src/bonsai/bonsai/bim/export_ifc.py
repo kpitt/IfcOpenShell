@@ -84,7 +84,7 @@ class IfcExporter:
             .isoformat()
         )
         self.file.wrapped_data.header.file_name.preprocessor_version = "IfcOpenShell {}".format(ifcopenshell.version)
-        self.file.wrapped_data.header.file_name.originating_system = "{} {}".format(
+        self.file.wrapped_data.header.file_name.originating_system = "ifcopenshell.org - {} - {}".format(
             self.get_application_name(), tool.Blender.get_bonsai_version()
         )
 
