@@ -433,6 +433,9 @@ def add_annotation(
         ifc.run("group.assign_group", group=drawing_tool.get_drawing_group(drawing), products=[element])
     if representation := drawing_tool.get_representation(element, context):
         drawing_tool.reload_representation(obj=obj, representation=representation)
+        # In some cases, the original obj is no longer valid after reloading the representation,
+        # so retrieve the current version of the object just in case.
+        obj = ifc.get_object(element)
     collector.assign(obj, should_clean_users_collection=True)
     if not relating_type_rep and object_type != "IMAGE" and enable_editing:
         drawing_tool.enable_editing(obj)
